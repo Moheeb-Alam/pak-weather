@@ -1,0 +1,12 @@
+{
+  "name": "pak-weather",
+  "version": "1.0.0",
+  "description": "Weather app for Pakistan cities using Open-Meteo (HTML, CSS, Tailwind, Node.js)",
+  "main": "dev-server.js",
+  "scripts": {
+    "start": "node dev-server.js",
+    "dev": "node --watch dev-server.js"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": { "express": "^4.19.2" }
+}

@@ -1,0 +1,27 @@
+/* Sky changes with weather and day/night */
+body { background: var(--sky); transition: background 0.8s ease; background-attachment: fixed; }
+body[data-sky="clear-day"]  { --sky: linear-gradient(170deg, #1d6fd1 0%, #59a6ea 55%, #f2c46d 130%); }
+body[data-sky="clear-night"]{ --sky: linear-gradient(170deg, #0a1230 0%, #1b2a5c 60%, #3a3f7a 120%); }
+body[data-sky="cloudy"]     { --sky: linear-gradient(170deg, #4a5a70 0%, #7b8ba0 70%, #a9b5c4 130%); }
+body[data-sky="rain"]       { --sky: linear-gradient(170deg, #26364a 0%, #3f566e 60%, #5f7891 120%); }
+body[data-sky="storm"]      { --sky: linear-gradient(170deg, #161a2b 0%, #2c3350 60%, #4a4468 120%); }
+body[data-sky="fog"]        { --sky: linear-gradient(170deg, #6c7783 0%, #9aa4ad 70%, #c2c8ce 130%); }
+body[data-sky="snow"]       { --sky: linear-gradient(170deg, #5c7a99 0%, #a4bdd6 70%, #dbe7f2 130%); }
+
+.glass        { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.glass-strong { background: rgba(20,30,50,.88); border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+
+.chip { white-space: nowrap; border-radius: 9999px; padding: .45rem 1rem; font-size: .875rem; font-weight: 600;
+        background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22); transition: background .2s; }
+.chip:hover { background: rgba(255,255,255,.26); }
+.chip[aria-current="true"] { background: #fff; color: #10233d; }
+.chip button { margin-left: .5rem; opacity: .6; }
+.chip button:hover { opacity: 1; }
+
+button:focus-visible, a:focus-visible, .chip:focus-visible, li[role="option"]:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+#hourly::-webkit-scrollbar, #chips::-webkit-scrollbar { height: 6px; }
+#hourly::-webkit-scrollbar-thumb, #chips::-webkit-scrollbar-thumb { background: rgba(255,255,255,.3); border-radius: 9px; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+#temp { animation: rise .6s ease both; }
+@media (prefers-reduced-motion: reduce) { #temp { animation: none; } body { transition: none; } }
